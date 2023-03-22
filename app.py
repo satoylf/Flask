@@ -8,6 +8,9 @@ from controllers.product_controller import product
 from controllers.ticket_controller import ticket
 from controllers.iot_controller import iot
 
+
+#teset 
+
 app = Flask(__name__, template_folder="./views/", static_folder="./static/")
 
 app.register_blueprint(base, url_prefix='/base')
