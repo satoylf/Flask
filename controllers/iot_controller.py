@@ -9,3 +9,7 @@ def iot_index():
 @iot.route("/cadastro_cultura")
 def iot_cadastro():
     return render_template("/iot/iot_cadastrar_cultura.html")
+
+@iot.route("/status")
+def iot_status():
+    return render_template("/iot/iot_status.html")
