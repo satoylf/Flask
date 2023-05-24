@@ -1,3 +1,4 @@
+from models import Role
 from models.db import db
 from flask_login import UserMixin
 
@@ -8,5 +9,4 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(45) , nullable=False, unique=True)
     email = db.Column(db.String(30), nullable=False, unique=True)
     password = db.Column(db.String(1024) , nullable=False)
-    
-    roles = db.relationship("Role", back_populates="users", secondary="roles")
+    role_id = db.Column(db.Integer(), db.ForeignKey(Role.id))

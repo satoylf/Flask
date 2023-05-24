@@ -1,7 +1,7 @@
 from models import db, User
 from datetime import datetime
 
-class Culturas(db.Models):
+class Culturas(db.Model):
     __tablename__ = "culturas"
     id = db.Column("id", db.Integer(), primary_key=True)
     user_id = db.Column("user_id", db.Integer(), db.ForeignKey(User.id), nullable=False)
@@ -11,4 +11,4 @@ class Culturas(db.Models):
     pressao_ideal = db.Column(db.String(20))
     date_time = db.Column("date_time", db.DateTime(), nullable=False, default=datetime.now())
 
-    area_plantio = db.relationship('Area_Plantio', backref='area_plantio')
+    area_plantio = db.relationship('Area_plantio', backref='area_plantio')

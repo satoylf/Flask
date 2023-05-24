@@ -1,8 +1,8 @@
 from models.db import db
 from models.iot.device import Device
 from models.iot.sensor import Sensor
-from models.auth.user import User
 from models.auth.role import Role
+from models.auth.user import User
 from models.culturas.culturas import Culturas
 from models.culturas.area_plantio import Area_plantio
 
