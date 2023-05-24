@@ -1,0 +1,49 @@
+<!-- cadastrar_culturas.html -->
+{% extends "base.html" %}
+{% import 'utils/forms.html' as forms %}
+{% block title %}<title>FarmVille | Culturas - Cadastrar cultura</title>{% endblock %}
+{% block navbar %}
+<a class="nav-item nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+<a class="nav-item nav-link active" href="/culturas/cadastro_culturas">Cadastrar culturas</a>
+<a class="nav-item nav-link" href="/culturas/view_culturas">Listar culturas</a>
+{% endblock %}
+{% block content %}
+<div id="content">
+  <div class="container-fluid px-4">
+    <h3 class="mt-4">Cadastro de Cultura</h3>
+    <ol class="breadcrumb mb-4">
+      <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+      <li class="breadcrumb-item"><a href="/culturas/">Culturas</a></li>
+      <li class="breadcrumb-item active">Cadastro de Culturas</li>
+    </ol>
+    <div class="vertical-center">
+      <div class="container view">
+        <div class="justify-content-center">
+          <div class="container-fluid px-4">
+            <div class="row">
+              <div class="vertical-center">
+                <div class="container">
+                  <div class="card">
+                    <div class="card-header">
+                      Cadastrar Nova Cultura
+                    </div>
+                    <div class="card-body">
+                      <form class="row g-3 justify-content-center" enctype="multipart/form-data" action="/culturas/save_culturas" method="POST">
+                        {{ forms.input(label = 'Nome', name = 'name', id = 'name', type='text', box_size = 12) }}
+                        {{ forms.input(label = 'Estação Ideal', name = 'estacao_ideal', id = 'estacao_ideal', type='text', box_size = 4) }}
+                        {{ forms.input(label = 'Umidade Ideal', name = 'umidade_ideal', id = 'umidade_ideal', type='text', box_size = 4) }}
+                        {{ forms.input(label = 'Pressão Ideal', name = 'pressao_ideal', id = 'pressao_ideal', type='text', box_size = 4) }}
+                        {{ forms.button(label = 'Cadastrar Cultura', box_size = 12) }}
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

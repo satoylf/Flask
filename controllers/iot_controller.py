@@ -30,6 +30,7 @@ def save_sensors():
     is_active = True if request.form.get("is_active") == "on" else False
 
     Sensor.save_sensor(name, brand, model, description ,voltage, is_active, measure)
+    return redirect(url_for("iot.view_sensors"))
 
 @iot.route("/update_sensor/<id>")
 def update_sensor(id):
@@ -44,7 +45,7 @@ def save_sensor_changes():
     data = request.form.copy()
     data["is_active"] = data.get("is_active") == "on"
     Sensor.update_sensor(data)
-    return redirect(url_for("admin.iot.view_sensors"))
+    return redirect(url_for("iot.view_sensors"))
 
 @iot.route("/delete_sensor/<id>")
 def delete_sensor(id):
@@ -52,5 +53,5 @@ def delete_sensor(id):
         flash("Dispositivo Sensor Excluído com sucesso!!", "success")
     else:
         flash("Dispositivo Sensor não pode ser excluído pois está relacionado a leituras salvas no banco!!", "danger")
-    return redirect(url_for("admin.iot.view_sensors"))
+    return redirect(url_for("iot.view_sensors"))
 

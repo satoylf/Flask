@@ -15,7 +15,7 @@ class Culturas(db.Model):
     area_plantio = db.relationship('Area_plantio', backref='area_plantio')
 
     def save_cultura(name, estacao_ideal, umidade_ideal, pressao_ideal):
-        cultura = Culturas(id=id, name = name, estacao_ideal = estacao_ideal, \
+        cultura = Culturas(name = name, estacao_ideal = estacao_ideal, \
                 umidade_ideal=umidade_ideal, pressao_ideal=pressao_ideal, date_time=func.now())
         db.session.add(cultura)
         db.session.commit()

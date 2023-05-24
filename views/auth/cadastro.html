@@ -1,35 +1,48 @@
 <!-- cadastro.html -->
 {% extends "base.html" %}
+{% import 'utils/forms.html' as forms %}
 {% block title %}<title>FarmVille | Cadastro</title>{% endblock %}
 {% block navbar %}
 <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
 <a class="nav-item nav-link" href="/auth/login">Login</a>
 {% endblock %}
 {% block content %}
-<div class="vertical-center">
-  <div class="container forms shadow-sm p-3 mb-5 bg-white border border-secondary rounded">
-    <form action ="/auth/signup_post" class="row g-3 justify-content-center" method="POST">
-      <div class="col-md-6">
-        <label for="inputData" class="form-label">Usuário</label>
-        <input type="text" class="form-control" name="username" id = "username" placeholder="Nome de usuário" required>
+<div id="content">
+  <div class="container-fluid px-4">
+    <h3 class="mt-4">Registrar</h3>
+    <ol class="breadcrumb mb-4">
+      <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+      <li class="breadcrumb-item">Auth</li>
+      <li class="breadcrumb-item active">Registrar</li>
+    </ol>
+    <div class="vertical-center">
+      <div class="container view">
+        <div class="justify-content-center">
+          <div class="container-fluid px-4">
+            <div class="row">
+              <div class="vertical-center">
+                <div class="container">
+                  <div class="card">
+                    <div class="card-header">
+                      Registrar
+                    </div>
+                    <div class="card-body">
+                      <form class="row g-3 justify-content-center" enctype="multipart/form-data" action="/auth/signup_post" method="POST">
+                        {{ forms.input(label = 'Usuário', name = 'username', id = 'username', type='text', box_size = 6) }}
+                        {{ forms.input(label = 'Email', name = 'email', id = 'email', type='email', box_size = 6) }}
+                        {{ forms.input(label = 'Senha', name = 'password', id = 'password', type='password', box_size = 6) }}
+                        {{ forms.input(label = 'Nome Completo', name = 'name', id = 'name', type='text', box_size = 6) }}
+                        {{ forms.button(label = 'Registrar', box_size = 12) }}
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-md-6">
-        <label for="inputNome" class="form-label">Senha</label>
-        <input type="password" name = "password" id = "password" class="form-control" placeholder="Insira sua senha" required>
-      </div>
-      <div class="col-md-6">
-        <label for="inputData" class="form-label">Email</label>
-        <input type="email" name = "email" id = "email"  class="form-control" placeholder="Insira seu email" required>
-      </div>
-      <div class="col-12">
-        <label for="inputData" class="form-label">Nome completo</label>
-        <input type="text" class="form-control" name="name" id = "name" placeholder="Nome Completo" required>
-      </div>
-      <div class="col-12">
-        <br>
-        <button type="submit" class=" btn-primabtnry">Registrar</button>
-      </div>
-    </form>
+    </div>
   </div>
 </div>
 {% endblock %}
