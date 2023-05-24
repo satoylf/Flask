@@ -10,4 +10,3 @@ class User(UserMixin, db.Model):
     password = db.Column(db.String(1024) , nullable=False)
     
     roles = db.relationship("Role", back_populates="users", secondary="roles")
-    reads = db.relationship("Read", backref="users", lazy=True)
