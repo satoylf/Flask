@@ -32,3 +32,12 @@ class Sensor(db.Model):
         Sensor.query.filter_by(measure=measure).delete()
         db.session.commit()
         
+    def update_sensor(data):
+        Device.query.filter_by(id=data['id'])\
+                .update(dict(name = data['name'], brand=data['brand'], model = data['model'], 
+                        voltage = data['voltage'], description = data['description'], 
+                        is_active = data['is_active']))
+        
+        Sensor.query.filter_by(id=data['id'])\
+                        .update(dict(measure = data['measure']))
+        db.session.commit()
