@@ -9,5 +9,5 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(30), nullable=False, unique=True)
     password = db.Column(db.String(1024) , nullable=False)
     
-    roles = db.relationship("Role", back_populates="users", secondary="user_roles")
+    roles = db.relationship("Role", back_populates="users", secondary="roles")
     reads = db.relationship("Read", backref="users", lazy=True)

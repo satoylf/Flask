@@ -6,4 +6,4 @@ class Role(db.Model):
     name = db.Column(db.String(50))
     description = db.Column(db.String(512))
 
-    users = db.relationship("User", back_populates="roles", secondary="user_roles")
+    users = db.relationship("User", back_populates="roles", secondary="users")
