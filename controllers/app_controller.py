@@ -1,6 +1,7 @@
 from flask import Flask, render_template, session, g
 from controllers.auth_controller import auth
 from controllers.iot_controller import iot
+from controllers.culturas_controller import culturas
 
 from models.db import db, instance 
 from flask_login import LoginManager
@@ -28,6 +29,7 @@ def create_app() -> Flask:
 
     app.register_blueprint(auth, url_prefix='/auth')
     app.register_blueprint(iot, url_prefix='/iot')
+    app.register_blueprint(culturas, url_prefix='/culturas')
 
     @app.route('/')
     def index():

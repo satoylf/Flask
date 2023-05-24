@@ -20,7 +20,7 @@ def logout():
 @auth.route('/admin')
 @login_required
 def auth_admin():
-     return render_template("admin_base.html", name=current_user.name)
+     return render_template("home.html", name=current_user.name)
 @auth.route('/login_post', methods=['POST'])
 def login_post():
     # login code goes here
