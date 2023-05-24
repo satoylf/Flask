@@ -1,15 +1,8 @@
-from flask import Flask, render_template, session, g
-from controllers.auth_controller import auth
-from controllers.iot_controller import iot
+from controllers.app_controller import create_app
+from utils.create_db import create_db
 
-app = Flask(__name__, template_folder="./views/", static_folder="./static/")
-
-app.register_blueprint(auth, url_prefix='/auth')
-app.register_blueprint(iot, url_prefix='/iot')
-
-@app.route('/')
-def index():
-    return render_template("home.html")
 
 if __name__ == "__main__":
+    app = create_app()
+    create_db(app)
     app.run(debug=True)

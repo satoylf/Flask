@@ -8,20 +8,21 @@
 {% block content %}
 <div class="vertical-center">
   <div class="container forms shadow-sm p-3 mb-5 bg-white border border-secondary rounded">
-    <form class="row g-3 justify-content-center">
+    <form action="/auth/login_post" class="row g-3 justify-content-center" method="POST">
       <div class="col-md-6">
         <label for="inputData" class="form-label">Usuário</label>
-        <input type="text" class="form-control" id="inputData">
+        <input type="text" name="login" id = "login" class="form-control" placeholder="Insira seu nome de usuário ou email" required>
       </div>
       <div class="col-md-6">
         <label for="inputNome" class="form-label">Senha</label>
-        <input type="password" class="form-control" id="inputNome">
+        <input type="password" name = "password" id = "password" class="form-control" placeholder="Senha" required>
       </div>
       <div class="col-12">
         <br>
         <button type="submit" class="btn btn-primary">Login</button>
       </div>
     </form>
+    <p class="text-center">Não é um membro? <a href="/auth/cadastro">Registrar</a></p>
   </div>
 </div>
 {% endblock %}

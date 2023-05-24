@@ -8,30 +8,26 @@
 {% block content %}
 <div class="vertical-center">
   <div class="container forms shadow-sm p-3 mb-5 bg-white border border-secondary rounded">
-    <form class="row g-3 justify-content-center">
+    <form action ="/auth/signup_post" class="row g-3 justify-content-center" method="POST">
       <div class="col-md-6">
         <label for="inputData" class="form-label">Usuário</label>
-        <input type="text" class="form-control" id="inputData">
+        <input type="text" class="form-control" name="username" id = "username" placeholder="Nome de usuário" required>
       </div>
       <div class="col-md-6">
         <label for="inputNome" class="form-label">Senha</label>
-        <input type="password" class="form-control" id="inputNome">
+        <input type="password" name = "password" id = "password" class="form-control" placeholder="Insira sua senha" required>
       </div>
       <div class="col-md-6">
         <label for="inputData" class="form-label">Email</label>
-        <input type="text" class="form-control" id="inputData">
-      </div>
-      <div class="col-md-6">
-        <label for="inputData" class="form-label">CPF</label>
-        <input type="text" class="form-control" id="inputData">
+        <input type="email" name = "email" id = "email"  class="form-control" placeholder="Insira seu email" required>
       </div>
       <div class="col-12">
         <label for="inputData" class="form-label">Nome completo</label>
-        <input type="text" class="form-control" id="inputData">
+        <input type="text" class="form-control" name="name" id = "name" placeholder="Nome Completo" required>
       </div>
       <div class="col-12">
         <br>
-        <button type="submit" class="btn btn-primary">Registrar</button>
+        <button type="submit" class=" btn-primabtnry">Registrar</button>
       </div>
     </form>
   </div>
