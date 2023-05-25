@@ -4,16 +4,16 @@ culturas = Blueprint("culturas", __name__, template_folder='./views/admin/', sta
 
 @culturas.route("/")
 def culturas_index():
-    return render_template("/culturas/culturas_index.html")
+    return render_template("/admin/culturas/culturas_index.html")
 
 @culturas.route("/cadastro_culturas")
 def cadastro_culturas():
-    return render_template("/culturas/cadastrar_culturas.html")
+    return render_template("/admin/culturas/cadastrar_culturas.html")
 
 @culturas.route("/view_culturas")
 def view_culturas():
     culturas = Culturas.get_culturas()
-    return render_template("/culturas/view_culturas.html", culturas = culturas)
+    return render_template("/admin/culturas/view_culturas.html", culturas = culturas)
 
 @culturas.route("/save_culturas", methods = ["POST"])
 def save_culturas():
@@ -22,7 +22,7 @@ def save_culturas():
     umidade_ideal = request.form.get("umidade_ideal")
     pressao_ideal = request.form.get("pressao_ideal")
     Culturas.save_cultura(name, estacao_ideal, umidade_ideal, pressao_ideal)
-    return redirect(url_for('culturas.view_culturas'))
+    return redirect(url_for('admin.culturas.view_culturas'))
 
 @culturas.route("/delete_cultura/<id>")
 def delete_cultura(id):
@@ -30,15 +30,15 @@ def delete_cultura(id):
         flash("Cultura Excluído com sucesso!!", "success")
     else:
         flash("Cultura não pode ser excluído pois está relacionado a leituras salvas no banco!!", "danger")
-    return redirect(url_for("culturas.view_culturas"))
+    return redirect(url_for("admin.culturas.view_culturas"))
 
 @culturas.route("/update_cultura/<id>")
 def update_cultura(id):
     cultura = db.session.query(Culturas).filter(Culturas.id==int(id)).first()
-    return render_template("/culturas/update_culturas.html", cultura = cultura)
+    return render_template("/admin/culturas/update_culturas.html", cultura = cultura)
 
 @culturas.route("/save_cultura_changes", methods = ["POST"])
 def save_cultura_changes():
     data = request.form.copy()
     Culturas.update_cultura(data)
-    return redirect(url_for("culturas.view_culturas"))
+    return redirect(url_for("admin.culturas.view_culturas"))

@@ -20,7 +20,7 @@ def logout():
 @auth.route('/admin')
 @login_required
 def auth_admin():
-     return render_template("home.html", name=current_user.name)
+     return render_template("admin_base.html", name=current_user.name)
 @auth.route('/login_post', methods=['POST'])
 def login_post():
     # login code goes here
@@ -35,7 +35,7 @@ def login_post():
             return redirect(url_for('auth.login'))
     login_user(user, remember=remember)
 
-    return redirect(url_for('auth.auth_admin'))
+    return redirect(url_for('admin.admin_index'))
 
 @auth.route('/cadastro')
 def signup():

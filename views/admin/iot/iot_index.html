@@ -1,0 +1,24 @@
+<!-- iot_index.html -->
+{% extends "base.html" %}
+{% block title %}<title>FarmVille | IOT</title>{% endblock %}
+{% block navbar %}
+<a class="nav-item nav-link active" href="/admin/">Home <span class="sr-only">(current)</span></a>
+<a class="nav-item nav-link" href="/admin/iot/register_sensor">Cadastrar sensor</a>
+<a class="nav-item nav-link" href="/admin/iot/view_sensors">Listar sensores</a>
+{% endblock %}
+{% block content %}
+<div id="content">
+      <div class="container view">
+          <div class="container-fluid px-4">
+            <h3 class="mt-4">IOT</h3>
+            <ol class="breadcrumb mb-4">
+              <li class="breadcrumb-item"><a href="/admin/">Dashboard</a></li>
+              <li class="breadcrumb-item"><a href="/admin/iot/">Iot</a></li>
+              <li class="breadcrumb-item"><a href="/admin/iot/register_sensor">Registrar</a></li>
+              <li class="breadcrumb-item"><a href="/admin/iot/view_sensors">Listar</a></li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

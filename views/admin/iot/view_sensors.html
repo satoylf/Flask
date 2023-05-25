@@ -2,18 +2,17 @@
 {% extends "base.html" %}
 {% block title %}<title>FarmVille | IOT - Listar sensores</title>{% endblock %}
 {% block navbar %}
-<a class="nav-item nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-<a class="nav-item nav-link" href="/iot/register_sensor">Cadastrar sensor</a>
-<a class="nav-item nav-link active" href="/iot/view_sensors">Listar sensores</a>
-<a class="nav-item nav-link" href="/iot/status">Status</a>
+<a class="nav-item nav-link" href="/admin/">Home <span class="sr-only">(current)</span></a>
+<a class="nav-item nav-link" href="/admin/iot/register_sensor">Cadastrar sensor</a>
+<a class="nav-item nav-link active" href="/admin/iot/view_sensors">Listar sensores</a>
 {% endblock %}
 {% block content %}
 <div id="content">
   <div class="container-fluid px-4">
     <h2 class="mt-4">Listagem de Sensores</h2>
     <ol class="breadcrumb mb-4">
-      <li class="breadcrumb-item active"><a href="/">Dashboard</a></li>
-      <li class="breadcrumb-item active"><a href="/iot/">Iot</a></li>
+      <li class="breadcrumb-item active"><a href="/admin/">Dashboard</a></li>
+      <li class="breadcrumb-item active"><a href="/admin/iot/">Iot</a></li>
       <li class="breadcrumb-item active">Lista de Sensores</li>
     </ol>
     <div class="vertical-center">
@@ -59,8 +58,8 @@
                     {% else %}
                     <td>Desativado</td>
                     {% endif %}
-                    <td><i class="fa fa-refresh"></i><a href="/iot/update_sensor/{{ sensor.id }}"> Editar</a></td>
-                    <td><i class="fa fa-trash"></i><a href="/iot/delete_sensor/{{ sensor.id }}" onclick="return confirm('Tem certeza que deseja excluir esse sensor?');"> Excluir</a></td>
+                    <td><i class="fa fa-refresh"></i><a href="/admin/iot/update_sensor/{{ sensor.id }}"> Editar</a></td>
+                    <td><i class="fa fa-trash"></i><a href="/admin/iot/delete_sensor/{{ sensor.id }}" onclick="return confirm('Tem certeza que deseja excluir esse sensor?');"> Excluir</a></td>
                   </tr>
                   {% endfor %}
                 </tbody>

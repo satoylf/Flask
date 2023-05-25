@@ -2,17 +2,17 @@
 {% extends "base.html" %}
 {% block title %}<title>FarmVille | Culturas - Listar culturas</title>{% endblock %}
 {% block navbar %}
-<a class="nav-item nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-<a class="nav-item nav-link" href="/culturas/cadastrar_culturas">Cadastrar culturas</a>
-<a class="nav-item nav-link active" href="/culturas/view_culturas">Listar culturas</a>
+<a class="nav-item nav-link" href="/admin/">Home <span class="sr-only">(current)</span></a>
+<a class="nav-item nav-link" href="/admin/culturas/cadastro_culturas">Cadastrar culturas</a>
+<a class="nav-item nav-link active" href="/admin/culturas/view_culturas">Listar culturas</a>
 {% endblock %}
 {% block content %}
 <div id="content">
   <div class="container-fluid px-4">
     <h2 class="mt-4">Listagem de Culturas</h2>
     <ol class="breadcrumb mb-4">
-      <li class="breadcrumb-item active"><a href="/">Dashboard</a></li>
-      <li class="breadcrumb-item active"><a href="/culturas/">Culturas</a></li>
+      <li class="breadcrumb-item active"><a href="/admin/">Dashboard</a></li>
+      <li class="breadcrumb-item active"><a href="/admin/culturas/">Culturas</a></li>
       <li class="breadcrumb-item active">Lista de Culturas</li>
     </ol>
     <div class="vertical-center">
@@ -48,8 +48,8 @@
                     <td>{{ cultura.estacao_ideal }}</td>
                     <td>{{ cultura.umidade_ideal }}</td>
                     <td>{{ cultura.pressao_ideal }}</td>
-                    <td><i class="fa fa-refresh"></i><a href="/culturas/update_cultura/{{ cultura.id }}"> Editar</a></td>
-                    <td><i class="fa fa-trash"></i><a href="/culturas/delete_cultura/{{ cultura.id }}" onclick="return confirm('Tem certeza que deseja excluir essa cultura?');"> Excluir</a></td>
+                    <td><i class="fa fa-refresh"></i><a href="/admin/culturas/update_cultura/{{ cultura.id }}"> Editar</a></td>
+                    <td><i class="fa fa-trash"></i><a href="/admin/culturas/delete_cultura/{{ cultura.id }}" onclick="return confirm('Tem certeza que deseja excluir essa cultura?');"> Excluir</a></td>
                   </tr>
                   {% endfor %}
                 </tbody>

@@ -3,9 +3,9 @@
 {% import 'utils/forms.html' as forms %}
 {% block title %}<title>FarmVille | Culturas - Atualizar cultura</title>{% endblock %}
 {% block navbar %}
-<a class="nav-item nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-<a class="nav-item nav-link" href="/culturas/cadastro_culturas">Cadastrar culturas</a>
-<a class="nav-item nav-link" href="/culturas/view_culturas">Listar culturas</a>
+<a class="nav-item nav-link" href="/admin/">Home <span class="sr-only">(current)</span></a>
+<a class="nav-item nav-link" href="/admin/culturas/cadastro_culturas">Cadastrar culturas</a>
+<a class="nav-item nav-link" href="/admin/culturas/view_culturas">Listar culturas</a>
 {% endblock %}
 {% block content %}
 <div id="content">
@@ -15,8 +15,8 @@
         <div class="container-fluid px-4">
           <h3 class="mt-4">Atualização de Cultura</h3>
           <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="/culturas/">Culturas</a></li>
+            <li class="breadcrumb-item"><a href="/admin/">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="/admin/culturas/">Culturas</a></li>
             <li class="breadcrumb-item active">Atualização de Cultura</li>
           </ol>
           <div class="container-fluid px-4">
@@ -28,7 +28,7 @@
                       Atualizar Cultura
                     </div>
                     <div class="card-body">
-                      <form class="row g-3 justify-content-center" enctype="multipart/form-data" action="/culturas/save_cultura_changes" method="POST">
+                      <form class="row g-3 justify-content-center" enctype="multipart/form-data" action="/admin/culturas/save_cultura_changes" method="POST">
                         <input type="hidden"  id="id" name = "id" value="{{ cultura.id }}">
                         {{ forms.input(label = 'Nome', name = 'name', id = 'name', value=cultura.name, type='text', box_size = 12) }}
                         {{ forms.input(label = 'Estação Ideal', name = 'estacao_ideal', id = 'estacao_ideal', value=cultura.estacao_ideal, type='text', box_size = 4) }}

@@ -3,10 +3,9 @@
 {% import 'utils/forms.html' as forms %}
 {% block title %}<title>FarmVille | IOT - Atualizar sensor</title>{% endblock %}
 {% block navbar %}
-<a class="nav-item nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-<a class="nav-item nav-link" href="/iot/register_sensor">Cadastrar sensor</a>
-<a class="nav-item nav-link" href="/iot/view_sensors">Listar sensores</a>
-<a class="nav-item nav-link" href="/iot/status">Status</a>
+<a class="nav-item nav-link" href="/admin/">Home <span class="sr-only">(current)</span></a>
+<a class="nav-item nav-link" href="/admin/iot/register_sensor">Cadastrar sensor</a>
+<a class="nav-item nav-link" href="/admin/iot/view_sensors">Listar sensores</a>
 {% endblock %}
 {% block content %}
 <div id="content">
@@ -16,8 +15,8 @@
         <div class="container-fluid px-4">
           <h3 class="mt-4">Atualização de Sensor</h3>
           <ol class="breadcrumb mb-4">
-            <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="/iot/">Iot</a></li>
+            <li class="breadcrumb-item"><a href="/admin/">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="/admin/iot/">Iot</a></li>
             <li class="breadcrumb-item active">Atualização de Sensor</li>
           </ol>
           <div class="container-fluid px-4">
@@ -29,7 +28,7 @@
                       Atualizar Sensor
                     </div>
                     <div class="card-body">
-                      <form class="row g-3 justify-content-center" enctype="multipart/form-data" action="/iot/save_sensor_changes" method="POST">
+                      <form class="row g-3 justify-content-center" enctype="multipart/form-data" action="/admin/iot/save_sensor_changes" method="POST">
                         <input type="hidden"  id="id" name = "id" value="{{ sensor[0].id }}">
                         {{ forms.input(label = 'Nome', name = 'name', id = 'name', value=sensor[0].name, type='text', box_size = 6) }}
                         {{ forms.input(label = 'Modelo', name = 'model', id = 'model', value=sensor[0].model, type='text', box_size = 3) }}
