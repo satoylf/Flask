@@ -23,3 +23,26 @@ class Microcontroller(db.Model):
                                  Device.voltage, Device.description,  Device.is_active, Microcontroller.ports).all()
         
         return microcontrollers
+    
+    def delete_microcontroller(id):
+        try:
+            Microcontroller.query.filter_by(id=id).delete()
+            Device.query.filter_by(id=id).delete()
+            db.session.commit()
+            return True
+        except:
+            return False
+        
+    def delete_microcontroller_by_ports(ports):
+        Microcontroller.query.filter_by(ports=ports).delete()
+        db.session.commit()
+    
+    def update_microcontroller(data):
+        Device.query.filter_by(id=data['id'])\
+            .update(dict(name = data['name'], brand=data['brand'], model = data['model'], 
+                        voltage = data['voltage'], description = data['description'], 
+                        is_active = data['is_active']))
+        
+        Microcontroller.query.filter_by(id=data['id'])\
+                        .update(dict(ports = data['ports']))
+        db.session.commit()
