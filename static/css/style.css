@@ -11,3 +11,13 @@
     display: flex;
     align-items: center;
   }
+.form-control1 {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+  }
+  .btn-log {
+    width: 50%; /* ajuste a largura conforme necessário */
+    border-radius: 2%; /* ajuste o valor do raio conforme necessário */
+    background-color: #9ACD32; /* ajuste a cor de fundo conforme necessário */
+  }

@@ -1,48 +1,44 @@
-<!-- cadastro.html -->
-{% extends "base.html" %}
+<!-- login.html -->
+{% extends "base1.html" %}
 {% import 'utils/forms.html' as forms %}
-{% block title %}<title>FarmVille | Cadastro</title>{% endblock %}
+{% block title %}<title>FarmVille | Login</title>{% endblock %}
 {% block navbar %}
-<a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
-<a class="nav-item nav-link" href="/auth/login">Login</a>
+<nav id="navbar" class="navbar">
+  <ul>
+    <li><a class="nav-link scrollto " href="/">Home</a></li>
+    <li><a class="getstarted scrollto" href="/auth">Login</a></li>
+  </ul>
+  <i class="bi bi-list mobile-nav-toggle"></i>
+</nav>
 {% endblock %}
 {% block content %}
-<div id="content">
-  <div class="container-fluid px-4">
-    <h3 class="mt-4">Registrar</h3>
-    <ol class="breadcrumb mb-4">
-      <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
-      <li class="breadcrumb-item">Auth</li>
-      <li class="breadcrumb-item active">Registrar</li>
-    </ol>
-    <div class="vertical-center">
-      <div class="container view">
-        <div class="justify-content-center">
-          <div class="container-fluid px-4">
-            <div class="row">
-              <div class="vertical-center">
-                <div class="container">
-                  <div class="card">
-                    <div class="card-header">
-                      Registrar
-                    </div>
-                    <div class="card-body">
-                      <form class="row g-3 justify-content-center" enctype="multipart/form-data" action="/auth/signup_post" method="POST">
-                        {{ forms.input(label = 'Usuário', name = 'username', id = 'username', type='text', box_size = 6) }}
-                        {{ forms.input(label = 'Email', name = 'email', id = 'email', type='email', box_size = 6) }}
-                        {{ forms.input(label = 'Senha', name = 'password', id = 'password', type='password', box_size = 6) }}
-                        {{ forms.input(label = 'Nome Completo', name = 'name', id = 'name', type='text', box_size = 6) }}
-                        {{ forms.button(label = 'Registrar', box_size = 12) }}
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
+<div class="content d-flex align-items-center justify-content-center mt-4 mb-4"><section>
+    <div class="row d-flex justify-content-center align-items-center h-100 mb-3">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="https://media.istockphoto.com/id/1206318963/pt/vetorial/smart-farm-icons-set-linear-icons-agricultural-technology-on-mobile-and-computer-devices.jpg?s=612x612&w=0&k=20&c=YMyyxewcFYVYcwXN4YGdVbStj0j9A1mjde882szkciA="
+          class="img-fluid" alt="Sample image"  width="200%">
+      </div>
+      <div class="col-md-6 col-lg-4 col-xl-4 offset-xl-1">
+          <h3><strong>Area de Cadastro</strong></h3><br>
+          <form enctype="multipart/form-data" action="/auth/signup_post" method="POST">
+            <div>
+                {{ forms.input(label = 'Usuário', name = 'username', id = 'username', type='text') }}
             </div>
-          </div>
-        </div>
+            <div>
+                {{ forms.input(label = 'Email', name = 'email', id = 'email', type='email') }}
+            </div>
+            <div>
+                {{ forms.input(label = 'Senha', name = 'password', id = 'password', type='password') }}
+            </div>
+            <div>
+                {{ forms.input(label = 'Nome Completo', name = 'name', id = 'name', type='text') }}
+            </div>
+            <div class="col-12">
+                {{ forms.button(label = 'Registrar') }}
+                          </div>
+        </form>
       </div>
     </div>
   </div>
-</div>
+
 {% endblock %}

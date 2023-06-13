@@ -1,7 +1,7 @@
-{% macro input(label, name, id, value='', type='text', box_size = 4) -%}
-<div class="col-md-{{ box_size }}">
-    <label for="{{ id }}" class="form-label">{{ label }}</label>
-    <input class="form-control" type="{{ type }}" value="{{ value|e }}" name="{{ name }}" id = "{{ id }}">
+{% macro input(label, name, id, value='', type='text') -%}
+<div class="form-floating mb-3" >
+    <input class="form-control form-control-lg" type="{{ type }}" value="{{ value|e }}" name="{{ name }}" id = "{{ id }}">
+    <label for="{{id}}" >{{ label }}</label>
 </div>
 {%- endmacro %}
 
@@ -23,8 +23,8 @@
 </div>
 {% endmacro %}
 
-{% macro button(label, type = "submit", box_size = 12) %}
-<div class="col-{{ box_size }}">
-    <button type="{{ type }}" class="float-right btn btn-primary">{{ label }}</button>
+{% macro button(label, type = "submit") %}
+<div class="text-center text-lg-start mt-4 pt-2">
+    <button type="{{ type }}" class="btn btn-success"style="padding-left: 3.5rem; padding-right: 3.5rem;" >{{ label }}</button>
 </div>
 {% endmacro %}

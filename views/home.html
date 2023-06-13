@@ -1,22 +1,80 @@
 <!-- home.html -->
-{% extends "base.html" %}
+{% extends "base1.html" %}
 {% block title %}<title>FarmVille</title>{% endblock %}
 {% block navbar %}
-<a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
-<a class="nav-item nav-link" href="/auth">Login</a>
+<nav id="navbar" class="navbar">
+  <ul>
+    <li><a class="nav-link scrollto " href="#">Home</a></li>
+    <li><a class="nav-link scrollto" href="#about">Sobre a Farmville</a></li>
+    <li><a class="nav-link scrollto" href="#contact">Contato</a></li>
+    <li><a class="getstarted scrollto" href="/auth">Login</a></li>
+  </ul>
+  <i class="bi bi-list mobile-nav-toggle"></i>
+</nav>
 {% endblock %}
-{% block content %}
-<div class="vertical-center">
-  <div class="container">
-    <h1>Bem-vindo a FarmVille</h1>
-    <h3>Sobre nós:</h3>
-    <p>
-    Nossa fazenda é automaticamente monitorada por sensores de temperatura, pressão e umidade,
-    com uma interface web disponível para operadores e administradores monitorarem de forma
-    rápida e prática o estado atual das plantações, com um sistema para alertar possíveis condições
-    climáticas que possam prejudicar o cultivo da plantação.
-    </p>
-    <p></p>
+{% block content %} 
+<section id="hero" class="d-flex align-items-center">
+  <div class="container text-center position-relative" data-aos="fade-in" data-aos-delay="200">
+    <h1>FARMVILLE</h1>
+    <h2>Nos comprometemos em fornecer um ambiente ideal para o crescimento saudável das plantas</h2>
+    <a href="/auth" class="btn-get-started scrollto">Fazer Login</a>
   </div>
-</div>
+</section>
+<main id="main">
+  <section id="about" class="about">
+    <div class="container">
+
+      <div class="row content">
+        <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+          <h2>Sobre a Farmville</h2>
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-left" data-aos-delay="200">
+          <p>
+            Farmville é uma fazenda equipada com sensores para monitorar constantemente 
+            as condições de temperatura, pressão e umidade de nossas plantações. Utilizamos uma interface web 
+            para que nossos operadores e administradores possam acompanhar em tempo real o estado atual das plantas
+            e receber alertas sobre possíveis condições climáticas que possam prejudicar o cultivo.
+          </p>
+          <p class="fst-italic">
+            Na Farmville, estamos comprometidos em fornecer um ambiente ideal para o crescimento saudável das plantas.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4" data-aos="fade-right">
+          <div class="section-title">
+            <h2>Contato</h2>
+            <p>Se caso você tenha uma sugestão, dúvida, reclamação, elogio, entre em contato com a Farmville pelos canais ao lado.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
+          <iframe style="border:0; width: 100%; height: 270px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14410.372027277872!2d-49.2511097!3d-25.4518669!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce4fa6efc3181%3A0x8b0f452491a6f477!2sPUCPR%20-%20Pontif%C3%ADcia%20Universidade%20Cat%C3%B3lica%20do%20Paran%C3%A1!5e0!3m2!1spt-BR!2sbr!4v1686537151716!5m2!1spt-BR!2sbr" allowfullscreen frameborder="0"></iframe>
+          <div class="info mt-4">
+            <i class="bi bi-geo-alt"></i>
+            <h4>Endereco:</h4>
+            <p>R. Imac. Conceição, 1155 - Prado Velho, Curitiba - PR, 80215-901</p>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 mt-4">
+              <div class="info">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>farmville@farmville.com</p>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="info w-100 mt-4">
+                <i class="bi bi-phone"></i>
+                <h4>Telefone:</h4>
+                <p>+55 41 99999-9999</p>
+              </div>
+            </div>
+          </div>
+  </section>
 {% endblock %}
