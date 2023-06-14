@@ -1,7 +1,7 @@
 from flask import Flask, render_template, session, g
 from controllers.auth_controller import auth
 from controllers.admin_controller import admin
-from controllers.iot_controller import status
+from controllers.iot_controller import status, warn
 from datetime import datetime
 import json
 
@@ -46,6 +46,14 @@ def create_app() -> Flask:
     def index():
         return render_template("home.html")
 
+    @app.route('/status')
+    def get_status():
+        return status
+
+    @app.route('/warn')
+    def get_warn():
+        return warn
+
     @mqtt_client.on_connect()
     def handle_connect(client, userdata, flags, rc):
         if rc == 0:
@@ -57,6 +65,7 @@ def create_app() -> Flask:
 
     @mqtt_client.on_message()
     def handle_mqtt_message(client, userdata, message):
+        global warn
         data = dict(
             topic=message.topic,
             payload=message.payload.decode()
@@ -68,14 +77,14 @@ def create_app() -> Flask:
                 status['t'] = values['t']
                 status['h'] = values['h']
                 status['p'] = values['p']
-                if message.topic == "Farmville-status":
-                    reads = Read(date_time=datetime.now(), temperature=values['t'], humidity=values['h'], pressure=values['p'], sensor_id=values['id'])
-                    db.session.add(reads)
-                    db.session.commit()
-                elif message.topic == "Farmville-warnings":
+                warn = ""
+                reads = Read(date_time=datetime.now(), temperature=values['t'], humidity=values['h'], pressure=values['p'], sensor_id=values['id'])
+                db.session.add(reads)
+                if message.topic == "Farmville-warnings":
+                    warn = values['w']
                     alerts = Alert(date_time=datetime.now(), temperature=values['t'], humidity=values['h'], pressure=values['p'], message=values['w'], sensor_id=values['id'])
                     db.session.add(alerts)
-                    db.session.commit()
+                db.session.commit()
 
     return app
 

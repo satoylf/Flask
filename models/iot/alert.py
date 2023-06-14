@@ -1,10 +1,10 @@
-from models import db, Microcontroller
+from models import db, Sensor
 from datetime import datetime
 
 class Alert(db.Model):
     __tablename__ = "alerts"
     id = db.Column("id", db.Integer(), primary_key=True)
-    sensor_id = db.Column(db.Integer(), db.ForeignKey(Microcontroller.id))
+    sensor_id = db.Column(db.Integer(), db.ForeignKey(Sensor.id))
     temperature = db.Column(db.Float(), nullable=False, default=0.0)
     humidity = db.Column(db.Float(), nullable=False, default=0.0)
     pressure = db.Column(db.Float(), nullable=False, default=0.0)

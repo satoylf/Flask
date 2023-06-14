@@ -11,18 +11,20 @@
                   <div class="content">
         <div class="col-12">
           <label for="inputData" class="form-label">Temperatura atual</label>
-          <h3>{{ status['t'] }} C</h3>
+          <h3 id="temp">{{ status['t'] }} C</h3>
         </div>
         <div class="col-12">
           <label for="inputNome" class="form-label">Umidade atual</label>
-          <h3>{{ status['h'] }}%</h3>
+          <h3 id="humi">{{ status['h'] }}%</h3>
         </div>
         <div class="col-12">
           <label for="inputData" class="form-label">Pressão atual</label>
-          <h3>{{ status['p'] }} hPa</h3>
+          <h3 id="pres">{{ status['p'] }} hPa</h3>
         </div>
       </div>
     </div>
   </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="static/js/ajax.js" defer></script>
 </div>
 {% endblock %}

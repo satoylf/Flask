@@ -6,6 +6,7 @@ class Sensor(db.Model):
     measure = db.Column(db.String(20))
 
     reads = db.relationship("Read", backref="sensors", lazy=True)
+    alerts = db.relationship("Alert", backref="sensors", lazy=True)
 
     def get_sensors():
         sensors = Sensor.query.join(Device, Device.id == Sensor.id)\
