@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template,redirect,url_for, request, flash
 from flask_login import login_required
-from models import Sensor, Device, db
+from models import Sensor, Device, db, Microcontroller 
 iot = Blueprint("iot", __name__, template_folder = './views/', static_folder='./static/', root_path="./")
 
 status = {
