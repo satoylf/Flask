@@ -1,18 +1,14 @@
 <!-- iot_status.html -->
-{% extends "base.html" %}
-{% block title %}<title>FarmVille | IOT - Status</title>{% endblock %}
-{% block navbar %}
-<a class="nav-item nav-link" href="/admin/">Home <span class="sr-only">(current)</span></a>
-<a class="nav-item nav-link" href="/admin/iot/cadastro_sensor">Cadastrar sensor</a>
-<a class="nav-item nav-link" href="/admin/culturas/cadastro_culturas">Cadastrar cultura</a>
-<a class="nav-item nav-link" href="/admin/culturas/listar_cultura">Listar culturas cadastradas</a>
-<a class="nav-item nav-link" href="/admin/iot/listar_sensores">Listar sensores cadastrados</a>
-{% endblock %}
+{% extends "admin_base.html" %}
 {% block content %}
-<div id="content">
-  <div class="vertical-center">
-    <div class="container forms shadow-sm p-3 mb-5 bg-white border border-secondary rounded">
-      <div class="row g-3 justify-content-center">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="header">
+                      <h4 class="title">Status</h4>
+                  </div>
+                  <div class="content">
         <div class="col-12">
           <label for="inputData" class="form-label">Temperatura atual</label>
           <h3>{{ status['t'] }} C</h3>

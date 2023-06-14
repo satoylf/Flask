@@ -1,23 +1,48 @@
 <!-- home.html -->
-{% extends "base.html" %}
-{% block title %}<title>FarmVille</title>{% endblock %}
-{% block navbar %}
-<a class="nav-item nav-link active" href="/admin/">Home <span class="sr-only">(current)</span></a>
-<a class="nav-item nav-link" href="/admin/iot">IOT</a>
-<a class="nav-item nav-link" href="/admin/culturas">Culturas</a>
-{% endblock %}
+{% extends "admin_base.html" %}
 {% block content %}
-<div class="vertical-center">
-  <div class="container">
-    <h1>Bem-vindo a FarmVille</h1>
-    <h3>Sobre nós:</h3>
-    <p>
-    Nossa fazenda é automaticamente monitorada por sensores de temperatura, pressão e umidade,
-    com uma interface web disponível para operadores e administradores monitorarem de forma
-    rápida e prática o estado atual das plantações, com um sistema para alertar possíveis condições
-    climáticas que possam prejudicar o cultivo da plantação.
-    </p>
-    <p></p>
-  </div>
-</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+
+                <div class="header">
+                    <h4 class="title">Distribuicao de Culturas</h4>
+                    <p class="category">% por metro quadrado</p>
+                </div>
+                <div class="content">
+                    <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
+
+                    <div class="footer">
+                        <div class="legend">
+                            <i class="fa fa-circle text-info"></i> Trigo
+                            <i class="fa fa-circle text-danger"></i> Soja
+                            <i class="fa fa-circle text-warning"></i> Milho
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Umidade do Solo</h4>
+                    <p class="category">% por area</p>
+                </div>
+                <div class="content">
+                    <div id="chartHours" class="ct-chart"></div>
+                    <div class="footer">
+                        <div class="legend">
+                            <i class="fa fa-circle text-info"></i> Area 1
+                            <i class="fa fa-circle text-danger"></i> Area 2
+                            <i class="fa fa-circle text-warning"></i> Area 3 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    </div>
 {% endblock %}

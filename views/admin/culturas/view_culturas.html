@@ -1,74 +1,54 @@
 <!-- view_culturas.html -->
-{% extends "base.html" %}
-{% block title %}<title>FarmVille | Culturas - Listar culturas</title>{% endblock %}
-{% block navbar %}
-<a class="nav-item nav-link" href="/admin/">Home <span class="sr-only">(current)</span></a>
-<a class="nav-item nav-link" href="/admin/culturas/cadastro_culturas">Cadastrar culturas</a>
-<a class="nav-item nav-link active" href="/admin/culturas/view_culturas">Listar culturas</a>
-{% endblock %}
+{% extends "admin_base.html" %}
 {% block content %}
-<div id="content">
-  <div class="container-fluid px-4">
-    <h2 class="mt-4">Listagem de Culturas</h2>
-    <ol class="breadcrumb mb-4">
-      <li class="breadcrumb-item active"><a href="/admin/">Dashboard</a></li>
-      <li class="breadcrumb-item active"><a href="/admin/culturas/">Culturas</a></li>
-      <li class="breadcrumb-item active">Lista de Culturas</li>
-    </ol>
-    <div class="vertical-center">
-      <div class="container view">
-        <div class="justify-content-center">
-          <div class="card">
-            <div class="card-body">
-              {% with messages = get_flashed_messages(with_categories=true) %}
-              {% if messages %}
-              {% for category, message in messages %}
-              <div class="alert alert-{{ category }} alert-dismissible">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                {{ message }}
-              </div>
-              {% endfor %}
-              {% endif %}
-              {% endwith %}
-              <table id="view_culturas" class="table table-striped table-bordered" style="width:100%">
-                <thead>
-                  <tr>
-                    <th>Nome</th>
-                    <th>Estação</th>
-                    <th>Umidade</th>
-                    <th>Pressão</th>
-                    <th>Atualizar</th>
-                    <th>Excluir</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {% for cultura in culturas %}
-                  <tr>
-                    <td>{{ cultura.name }}</td>
-                    <td>{{ cultura.estacao_ideal }}</td>
-                    <td>{{ cultura.umidade_ideal }}</td>
-                    <td>{{ cultura.pressao_ideal }}</td>
-                    <td><i class="fa fa-refresh"></i><a href="/admin/culturas/update_cultura/{{ cultura.id }}"> Editar</a></td>
-                    <td><i class="fa fa-trash"></i><a href="/admin/culturas/delete_cultura/{{ cultura.id }}" onclick="return confirm('Tem certeza que deseja excluir essa cultura?');"> Excluir</a></td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
-                <tfoot>
-                  <tr>
-                    <th>Nome</th>
-                    <th>Estação</th>
-                    <th>Umidade</th>
-                    <th>Pressão</th>
-                    <th>Atualizar</th>
-                    <th>Excluir</th>
-                  </tr>
-                </tfoot>
-              </table>
+  <div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Listagem de Culturas</h4>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                      {% with messages = get_flashed_messages(with_categories=true) %}
+                      {% if messages %}
+                      {% for category, message in messages %}
+                      <div class="alert alert-{{ category }} alert-dismissible">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        {{ message }}
+                      </div>
+                      {% endfor %}
+                      {% endif %}
+                      {% endwith %}
+                        <table id="view_culturas" class="table table-hover table-striped">
+                            <thead>
+                              <tr>
+                                <th>Nome</th>
+                                <th>Estação</th>
+                                <th>Umidade</th>
+                                <th>Pressão</th>
+                                <th>Atualizar</th>
+                                <th>Excluir</th>
+                              </tr>
+            
+                            </thead>
+                            <tbody>
+                              {% for cultura in culturas %}
+                              <tr>
+                                <td>{{ cultura.name }}</td>
+                                <td>{{ cultura.estacao_ideal }}</td>
+                                <td>{{ cultura.umidade_ideal }}</td>
+                                <td>{{ cultura.pressao_ideal }}</td>
+                                <td><i class="fa fa-refresh"></i><a href="/admin/culturas/update_cultura/{{ cultura.id }}"> Editar</a></td>
+                                <td><i class="fa fa-trash"></i><a href="/admin/culturas/delete_cultura/{{ cultura.id }}" onclick="return confirm('Tem certeza que deseja excluir essa cultura?');"> Excluir</a></td>
+                              </tr>
+                              {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+                
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
 {% endblock %}
