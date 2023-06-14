@@ -13,7 +13,7 @@ admin.register_blueprint(culturas, url_prefix='/culturas')
 
 @admin.route("/")
 @admin.route("/admin")
-#@login_required
+@login_required
 def admin_index():
     """
     if not current_user.is_authenticated:
