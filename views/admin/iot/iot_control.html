@@ -1,0 +1,35 @@
+<!-- iot_status.html -->
+{% extends "admin_base.html" %}
+{% import 'utils/formsadmin.html' as forms %}
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="header">
+          <h4 class="title">Controle de Microcontrolador</h4>
+        </div>
+        <div class="content">
+          <form enctype="multipart/form-data" action="/admin/iot/control" method="POST">
+            <div class="row">
+              <div class="col-md-6">
+                {{ forms.input(label = 'Temperatura', name = 'temp', id = 'temp', type='text') }}
+              </div>
+              <div class="col-md-6">
+                {{ forms.input(label = 'Pressão', name = 'pres', id = 'pres', type='text') }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                {{ forms.input(label = 'Humidade', name = 'humi', id = 'humi', type='text') }}
+              </div>
+            </div>
+            {{ forms.button(label = 'Enviar') }}
+            <div class="clearfix"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

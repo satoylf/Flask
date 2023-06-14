@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template,redirect,url_for, request, flash
 from flask_login import login_required
-from models import Sensor, Device, db, Microcontroller 
+from models.mqtt import mqtt_client
+from models import Sensor, Device, db, Microcontroller
 iot = Blueprint("iot", __name__, template_folder = './views/', static_folder='./static/', root_path="./")
 
 status = {
@@ -117,3 +118,16 @@ def delete_microcontroller(id):
     else:
         flash("Dispositivo Microcontrolador não pode ser excluído!!", "danger")
     return redirect(url_for("admin.iot.view_microcontroller"))
+
+@iot.route("/send_control")
+@login_required
+def send_control():
+    return render_template("/admin/iot/iot_control.html")
+
+@iot.route("/control", methods = ["POST"])
+@login_required
+def control():
+    data = request.form.copy()
+    json_data = '{"t": ' + data['temp'] + ', "h": ' + data['humi'] + ', "p": ' + data['pres'] + '}'
+    mqtt_client.publish("Farmville-control", json_data)
+    return redirect(url_for("admin.iot.iot_status"))
